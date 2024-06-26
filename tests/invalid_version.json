@@ -1,0 +1,19 @@
+{
+  "id": "starterkit-plugin",
+  "name": "StarterKit Plugin",
+  "description": "This is a starterkit plugin",
+  "author": {
+    "name": "Caido Labs Inc.",
+    "email": "dev@caido.io",
+    "url": "https://github.com/caido/starterkit-plugin"
+  },
+  "plugins": [
+    {
+      "kind": "frontend",
+      "id": "caido-extra-commands",
+      "name": "Extra Commands",
+      "entrypoint": "frontend/script.js",
+      "style": "frontend/style.css"
+    }
+  ]
+}

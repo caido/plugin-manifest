@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema",
+  "allOf": [
+    {
+      "$ref": "#/definitions/Manifest"
+    }
+  ],
+  "definitions": {
+    "Manifest": {
+      "type": "object",
+      "required": [
+        "id",
+        "plugins",
+        "version"
+      ],
+      "properties": {
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ManifestAuthor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "$ref": "#/definitions/ManifestID"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "plugins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ManifestPlugin"
+          }
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "ManifestAuthor": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ManifestBackendPluginRuntime": {
+      "type": "string",
+      "enum": [
+        "javascript"
+      ]
+    },
+    "ManifestFrontendPluginConnection": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ManifestID"
+        }
+      }
+    },
+    "ManifestID": {
+      "type": "string"
+    },
+    "ManifestPlugin": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "entrypoint",
+            "id",
+            "kind",
+            "style"
+          ],
+          "properties": {
+            "backend": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ManifestFrontendPluginConnection"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entrypoint": {
+              "type": "string"
+            },
+            "id": {
+              "$ref": "#/definitions/ManifestID"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "frontend"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "style": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "entrypoint",
+            "id",
+            "kind",
+            "runtime"
+          ],
+          "properties": {
+            "entrypoint": {
+              "type": "string"
+            },
+            "id": {
+              "$ref": "#/definitions/ManifestID"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "backend"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "runtime": {
+              "$ref": "#/definitions/ManifestBackendPluginRuntime"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
