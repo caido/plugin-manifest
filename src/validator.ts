@@ -1,6 +1,6 @@
 import { Ajv } from "ajv";
 
-import schema from "./schema.json";
+import schema from "./schema.json" assert { type: "json" };
 
 const ajv = new Ajv();
 
