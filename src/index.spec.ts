@@ -19,6 +19,13 @@ describe("Manifest", () => {
     expect(validateManifest(data)).toBe(true);
   });
 
+  it("Validate missing style manifest", () => {
+    const data = JSON.parse(
+      fs.readFileSync("./tests/valid_missing_style.json", "utf-8"),
+    );
+    expect(validateManifest(data)).toBe(true);
+  });
+
   it("Validate invalid version manifest", () => {
     const data = JSON.parse(
       fs.readFileSync("./tests/invalid_version.json", "utf-8"),
