@@ -1,0 +1,19 @@
+{
+  "id": "workflow-plugin",
+  "name": "Workflow Plugin",
+  "version": "0.1.0",
+  "description": "This is a workflow plugin",
+  "author": {
+    "name": "Caido Labs Inc.",
+    "email": "dev@caido.io",
+    "url": "https://github.com/caido/caido"
+  },
+  "plugins": [
+    {
+      "kind": "workflow",
+      "id": "caido-workflow",
+      "name": "Some workflow",
+      "definition": "workflow/definition.json"
+    }
+  ]
+}
