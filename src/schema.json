@@ -173,6 +173,33 @@
               "$ref": "#/definitions/ManifestBackendPluginRuntime"
             }
           }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "kind",
+            "definition"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/ManifestID"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "workflow"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "definition": {
+              "type": "string"
+            }
+          }
         }
       ]
     }
