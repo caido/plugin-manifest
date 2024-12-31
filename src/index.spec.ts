@@ -2,7 +2,7 @@ import fs from "fs";
 
 import { describe, expect, it } from "vitest";
 
-import { validateManifest } from "./validator.js";
+import { validateManifest } from "./index";
 
 describe("Manifest", () => {
   it("validates frontend manifest", () => {
