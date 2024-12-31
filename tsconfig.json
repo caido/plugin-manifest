@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "NodeNext",
-
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-
-    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "sourceMap": true,
     "useDefineForClassFields": true,
