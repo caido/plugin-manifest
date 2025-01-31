@@ -80,7 +80,8 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "format": "uri"
         }
       }
     },
@@ -111,7 +112,8 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "format": "uri"
         }
       }
     },
