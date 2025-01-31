@@ -34,6 +34,16 @@
         "id": {
           "$ref": "#/definitions/ManifestID"
         },
+        "links": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ManifestLinks"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "name": {
           "type": [
             "string",
@@ -94,6 +104,17 @@
     "ManifestID": {
       "type": "string"
     },
+    "ManifestLinks": {
+      "type": "object",
+      "properties": {
+        "sponsor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
     "ManifestPlugin": {
       "oneOf": [
         {
@@ -103,6 +124,12 @@
             "kind"
           ],
           "properties": {
+            "assets": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
             "backend": {
               "anyOf": [
                 {
@@ -151,6 +178,12 @@
             "runtime"
           ],
           "properties": {
+            "assets": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
             "entrypoint": {
               "type": "string"
             },
@@ -177,11 +210,14 @@
         {
           "type": "object",
           "required": [
+            "definition",
             "id",
-            "kind",
-            "definition"
+            "kind"
           ],
           "properties": {
+            "definition": {
+              "type": "string"
+            },
             "id": {
               "$ref": "#/definitions/ManifestID"
             },
@@ -193,11 +229,9 @@
             },
             "name": {
               "type": [
-                "string"
+                "string",
+                "null"
               ]
-            },
-            "definition": {
-              "type": "string"
             }
           }
         }
