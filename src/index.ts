@@ -5,6 +5,10 @@ import schema from "./schema.json" with { type: "json" };
 export * from "./schema.generated";
 
 const ajv = new Ajv();
+ajv.addFormat(
+  "uri",
+  /^(https?:\/\/)?([\da-z-]+\.)+([a-z]{2,6})([\/\w \.-]*)*\/?$/i,
+);
 
 export function validateManifest(data: unknown): boolean {
   console.log("[*] Validating manifest data");
