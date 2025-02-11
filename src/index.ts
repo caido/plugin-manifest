@@ -7,7 +7,7 @@ export * from "./schema.generated";
 const ajv = new Ajv();
 ajv.addFormat(
   "uri",
-  /^(https?:\/\/)?([\da-z-]+\.)+([a-z]{2,6})([\/\w \.-]*)*\/?$/i,
+  /^(https?:\/\/)?([\da-z-]+\.)+([a-z]{2,6})([/\w .-]*)*\/?$/i,
 );
 
 export function validateManifest(data: unknown): boolean {
