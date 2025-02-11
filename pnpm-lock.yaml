@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       ajv:
-        specifier: ^8.17.1
+        specifier: ^8.17.0
         version: 8.17.1
     devDependencies:
       '@caido/eslint-config':
