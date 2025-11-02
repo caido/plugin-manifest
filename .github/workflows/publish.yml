@@ -5,6 +5,10 @@ on:
     branches:
       - 'main'
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   publish-js:
     runs-on: ubuntu-latest
@@ -14,15 +18,11 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Install Mise
+        uses: caido/action-mise-action@v3.2.0
         with:
-          node-version: 20
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 9
+          working_directory: .
+          version: ${{ vars.CI__MISE_VERSION }}
 
       - name: Install dependencies
         run: pnpm install
@@ -31,6 +31,4 @@ jobs:
         run: pnpm run build
 
       - name: Publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_BOT_TOKEN }}
         run: pnpm -r publish --access public
