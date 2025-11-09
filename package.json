@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "Validation for the plugin manifest",
   "author": "Caido Labs Inc. <dev@caido.io>",
+  "repository": "github:caido/plugin-manifest",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
